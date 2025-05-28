@@ -1,17 +1,15 @@
 import express from 'express';
+import { json } from 'express';
 import {sequelize} from './db'
+import contactRoute from './routers/contactRouter';
 import dotenv from "dotenv";
 dotenv.config();
 
-const app = express();
+export const app = express();
 
-app.use('/identify', (req, res) =>{
-    res.send("welcome to homepage!");
-})
+app.use(express.json());
 
-app.listen(8000,(err) =>{
-    console.log("The server connected at port 8000!");
-});
+app.use('/', contactRoute)
 
 const serverPort = process.env.PORT;
 sequelize.sync().then(()=>{
