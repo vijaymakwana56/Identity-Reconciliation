@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use('/', contactRoute)
 
-const serverPort = process.env.PORT;
+const serverPort = process.env.PORT || 3000;
 sequelize.sync().then(()=>{
-    app.listen(serverPort, () =>{console.log("server running on port 8000!")});
+    app.listen(serverPort, () =>{console.log(`server running on port ${serverPort}!`)});
 });
