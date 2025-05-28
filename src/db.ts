@@ -4,7 +4,7 @@ dotenv.config();
 
 const url = process.env.DATABASE_URL || '';
 
-export const sequelize = new Sequelize(process.env.DB_URL as string, {
+export const sequelize = new Sequelize(process.env.DATABASE_URL as string, {
   dialect: 'postgres',
   dialectOptions: {
     ssl: {
